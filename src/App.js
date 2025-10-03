@@ -1,0 +1,86 @@
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import ContactPopup from './components/ContactPopup';
+
+function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
+  const openContact = () => setIsContactOpen(true);
+  const closeContact = () => setIsContactOpen(false);
+
+  return (
+    <div className="App">
+      <Navbar onContactClick={openContact} />
+      
+      <main className="main-content">
+        {/* Hero Content */}
+        <div className="hero-container">
+          <h1 className="hero-title">
+            The innovation driving <br />
+            next-generation sports systems.
+          </h1>
+        </div>
+        
+        {/* Right side decoration */}
+        <div className="hero-decoration"></div>
+      </main>
+
+      {/* Pagada Conversations Section */}
+      <section className="conversations-section">
+        <div className="conversations-container">
+          <div className="conversations-header">
+            <h2 className="conversations-title">
+              Icons Who Built Today. Insights to Shape Tomorrow.
+            </h2>
+            <div className="conversations-subtitle">
+              <p>Be in the room for <strong>legendary conversations,</strong></p>
+              <p>where <strong>athletics' future is taking shape.</strong></p>
+            </div>
+          </div>
+
+          <div className="team-profiles">
+            <div className="profile-card">
+              <div className="profile-image placeholder-1"></div>
+              <h3 className="profile-name">Sarah Chen</h3>
+              <p className="profile-title">Partner</p>
+              <p className="profile-company">Athletic Capital</p>
+            </div>
+
+            <div className="profile-card">
+              <div className="profile-image placeholder-2"></div>
+              <h3 className="profile-name">Marcus Rivera</h3>
+              <p className="profile-title">Managing Director</p>
+              <p className="profile-company">Sports Catalyst</p>
+            </div>
+
+            <div className="profile-card">
+              <div className="profile-image placeholder-3"></div>
+              <h3 className="profile-name">Dayakar</h3>
+              <p className="profile-title">Co-Founder</p>
+              <p className="profile-company">Pagada</p>
+            </div>
+
+            <div className="profile-card">
+              <div className="profile-image placeholder-4"></div>
+              <h3 className="profile-name">David Park</h3>
+              <p className="profile-title">EVP & GM</p>
+              <p className="profile-company">Elite Performance Sciences</p>
+            </div>
+
+            <div className="profile-card">
+              <div className="profile-image placeholder-5"></div>
+              <h3 className="profile-name">Jennifer Walsh</h3>
+              <p className="profile-title">Co-Founder & CEO</p>
+              <p className="profile-company">SportSync</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Popup */}
+      <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
+    </div>
+  );
+}
+
+export default App;

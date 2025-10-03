@@ -1,0 +1,1376 @@
+/* ==========================================================================
+   PAGADA WEBSITE - CONSOLIDATED STYLES
+   All CSS in one organized file
+   ========================================================================== */
+
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #fff;
+  
+  /* Healthcare tech dark theme background */
+  background: #000;
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ==========================================================================
+   2. LAYOUT COMPONENTS - HEALTHCARE TECH DARK THEME
+   ========================================================================== */
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  background: #000;
+}
+
+.main-content {
+  padding-top: 120px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  overflow: hidden;   /* Prevent overlay from spilling out */
+}
+
+/* Noise overlay for main-content */
+.main-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/noise.png");
+  opacity: 0.15; /* Lower opacity for subtle effect */
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hero Content */
+.hero-container {
+  max-width: none;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+  flex: 1;
+}
+
+/* Noise overlay for main-content */
+.main-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/noise.png");
+  opacity: 0.05; /* Lower opacity for subtle effect */
+  pointer-events: none;
+  z-index: 2;
+}
+/* Right side decoration */
+.hero-decoration {
+  position: absolute;
+  right: 5rem;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background-image: url('/assets/Artboard 4.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  z-index: 5;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: white;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -2px;
+  max-width: 800px;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cta-text {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.scroll-indicator {
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.8) 0%,
+    transparent 100%
+  );
+}
+
+/* ==========================================================================
+   3. NAVBAR STYLES - HEALTHCARE TECH DARK THEME
+   ========================================================================== */
+
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-container {
+  width: 100%;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+}
+
+/* Logo Styles - Left positioned */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.logo-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+/* Navbar SVG Logo Styling */
+.navbar-logo-svg {
+  height: 100px !important;
+}
+
+.navbar-logo-svg .logo-image {
+  height: 100px !important;
+  width: auto !important;
+  filter: brightness(0) invert(1); /* Make SVG white for dark navbar */
+}
+
+/* Center Navigation Menu */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-item:last-child {
+  border-right: none;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 18px 28px;
+  height: 60px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: transparent;
+}
+
+/* Right Description and Button */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-description {
+  text-align: right;
+}
+
+.navbar-description p {
+  color: #ccc;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: 300;
+}
+
+.explore-btn {
+  background: #ffffff;
+  color: rgb(6, 6, 6);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: #3cd400;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   4. DROPDOWN MENU STYLES - COMMURE STYLE
+   ========================================================================== */
+
+.dropdown-overlay {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, 
+    rgba(110, 109, 109, 0.98) 0%,
+    rgba(142, 141, 141, 0.95) 50%,
+    rgba(15, 15, 15, 0.98) 100%
+  );
+  backdrop-filter: blur(170px);
+  z-index: 999;
+  animation: fadeIn 0.2s ease-out;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content {
+  display: grid;
+  grid-template-columns: 300px 300px 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem;
+  gap: 3rem;
+  min-height: 400px;
+}
+
+/* Dropdown Title */
+.dropdown-title {
+  grid-column: 1;
+  padding-right: 2rem;
+}
+
+.dropdown-title h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.5px;
+}
+
+/* Dropdown Navigation */
+.dropdown-nav {
+  grid-column: 2;
+  padding-right: 2rem;
+}
+
+.dropdown-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-nav li {
+  margin-bottom: 1rem;
+}
+
+.dropdown-nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.dropdown-nav a:hover {
+  color: white;
+}
+
+/* Dropdown Featured Content */
+.dropdown-featured {
+  grid-column: 3;
+  position: relative;
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.featured-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.company-bg {
+  background: linear-gradient(135deg, #333 0%, #666 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/></svg>');
+}
+
+.product-bg {
+  background: radial-gradient(circle at center, #444 0%, #222 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="0.3" opacity="0.4"/><circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="0.3" opacity="0.4"/><circle cx="50" cy="50" r="10" fill="none" stroke="white" stroke-width="0.3" opacity="0.4"/></svg>');
+}
+
+.resources-bg {
+  background: linear-gradient(45deg, #2a2a2a 0%, #444 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" fill="none" stroke="white" stroke-width="0.3" opacity="0.3"/></svg>');
+}
+
+.careers-bg {
+  background: linear-gradient(225deg, #333 0%, #555 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="30,70 50,30 70,70" fill="none" stroke="white" stroke-width="0.3" opacity="0.3"/></svg>');
+}
+
+.featured-content {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.featured-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 1rem 0;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.featured-content p {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo Image Styles */
+.logo-image {
+  height: 100px;
+  width: 100px;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Menu */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.navbar-item {
+  margin: 0;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: #000;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* Contact Button */
+.navbar-contact {
+  display: flex;
+  align-items: center;
+}
+
+.contact-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #81f109;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.hamburger-line.active:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-line.active:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.active:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.mobile-contact-item {
+  display: none;
+}
+
+.mobile-contact-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   4. LOGO COMPONENT STYLES
+   ========================================================================== */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+/* Logo Size Variants */
+.logo-small .logo-image {
+  height: 30px;
+}
+
+.logo-medium .logo-image {
+  height: 40px;
+}
+
+.logo-large .logo-image {
+  height: 60px;
+}
+
+.logo-xlarge .logo-image {
+  height: 80px;
+}
+
+/* ==========================================================================
+   5. HERO SECTION
+   ========================================================================== */
+
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  margin: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-logo {
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #5a6c7d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   6. CONTENT SECTIONS
+   ========================================================================== */
+
+.section {
+  padding: 3rem 2rem;
+  margin: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5a6c7d;
+  max-width: 800px;
+}
+
+/* ==========================================================================
+   7. UTILITY CLASSES
+   ========================================================================== */
+
+.content-overlay {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   8. FIGMA GRADIENTS (ALTERNATIVE OPTIONS)
+   ========================================================================== */
+
+.figma-gradient {
+  background-color: #000000;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.figma-gradient .ellipse-1 {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(13, 3, 0, 1) 45%,
+    rgba(52, 12, 0, 1) 53%,
+    rgba(131, 31, 0, 1) 60%,
+    rgba(229, 50, 15, 1) 73%,
+    rgba(233, 115, 24, 1) 82%,
+    rgba(234, 153, 36, 1) 91%,
+    rgba(255, 240, 217, 1) 100%
+  );
+  border-radius: 50%;
+  height: 160vw;
+  position: absolute;
+  width: 160vw;
+  right: -60vw;
+  top: 20vh;
+  transform: rotate(-15deg);
+}
+
+/* ==========================================================================
+   9. ANIMATIONS
+   ========================================================================== */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN - POMEGRANATE STYLE
+   ========================================================================== */
+
+/* ==========================================================================
+   8. RESPONSIVE DESIGN - HEALTHCARE TECH
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 2rem;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-left {
+    z-index: 1001;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar-center {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .navbar-center-open {
+    transform: translateX(0);
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .nav-item {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .nav-link {
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  
+  .navbar-right {
+    display: none;
+  }
+  
+  .main-content {
+    padding-top: 180px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .navbar-description {
+    text-align: center;
+  }
+
+  /* Dropdown responsive */
+  .dropdown-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: auto;
+  }
+  
+  .dropdown-title {
+    grid-column: 1;
+    grid-row: 1;
+    padding-right: 0;
+  }
+  
+  .dropdown-nav {
+    grid-column: 1;
+    grid-row: 2;
+    padding-right: 0;
+  }
+  
+  .dropdown-featured {
+    grid-column: 1;
+    grid-row: 3;
+    min-height: 200px;
+  }
+  
+  .dropdown-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .dropdown-nav li {
+    margin-bottom: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem;
+  }
+  
+  .nav-item {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+  
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  .brand-name {
+    font-size: 1.2rem;
+  }
+  
+  .explore-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* Mobile dropdown adjustments */
+  .dropdown-content {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  .dropdown-title h2 {
+    font-size: 1.5rem;
+  }
+  
+  .featured-content {
+    padding: 1.5rem;
+  }
+  
+  .featured-content h3 {
+    font-size: 1rem;
+  }
+  
+  .featured-content p {
+    font-size: 0.85rem;
+  }
+  
+  .dropdown-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   9. PAGADA CONVERSATIONS SECTION
+   ========================================================================== */
+
+.conversations-section {
+  background: #000;
+  padding: 6rem 0;
+  position: relative;
+}
+
+.conversations-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  text-align: center;
+}
+
+.conversations-header {
+  margin-bottom: 4rem;
+}
+
+.conversations-title {
+  font-size: 4rem;
+  font-weight: 300;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
+.conversations-subtitle {
+  font-size: 1.4rem;
+  color: #ccc;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.conversations-subtitle strong {
+  color: white;
+  font-weight: 600;
+}
+
+.team-profiles {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  margin: 0 auto 1.5rem auto;
+  background: #333;
+  position: relative;
+  overflow: hidden;
+  background-image: url('/assets/Artboard 4.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* All profile placeholders use the same Artboard 4.svg */
+.placeholder-1,
+.placeholder-2,
+.placeholder-3,
+.placeholder-4,
+.placeholder-5 {
+  background: #333;
+  background-image: url('/assets/Artboard 4.svg');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.profile-title {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 0.25rem;
+  font-style: italic;
+}
+
+.profile-company {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 500;
+}
+
+/* Responsive Design for Conversations */
+@media (max-width: 1200px) {
+  .team-profiles {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .conversations-container {
+    padding: 0 2rem;
+  }
+  
+  .conversations-title {
+    font-size: 2.5rem;
+  }
+  
+  .conversations-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .team-profiles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .conversations-section {
+    padding: 4rem 0;
+  }
+  
+  .conversations-container {
+    padding: 0 1rem;
+  }
+  
+  .conversations-title {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  
+  .team-profiles {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ==========================================================================
+   10. CONTACT POPUP STYLES
+   ========================================================================== */
+
+.contact-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.contact-popup-content {
+  background: linear-gradient(135deg, 
+    rgba(20, 20, 20, 0.98) 0%,
+    rgba(30, 30, 30, 0.95) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+  
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+.contact-popup-content::-webkit-scrollbar {
+  display: none;
+}
+
+.contact-popup-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.contact-popup-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.contact-popup-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contact-popup-header h2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.5px;
+}
+
+.contact-popup-header p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00acc1 0%, #0097a7 100%);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design for Contact Popup */
+@media (max-width: 768px) {
+  .contact-popup-content {
+    padding: 2rem;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+  
+  .contact-popup-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-popup-content {
+    padding: 1.5rem;
+  }
+}
