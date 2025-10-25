@@ -39,7 +39,7 @@ const Logo = ({
     >
       <img 
         src={getLogoSrc()} 
-        alt="Pagada Logo" 
+        alt="PAGADA Logo" 
         className="logo-image"
       />
     </div>

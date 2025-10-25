@@ -32,7 +32,7 @@ const Navbar = ({ onContactClick }) => {
               size="medium"
               className="navbar-logo-svg"
             />
-            {/*<span className="brand-name">Pagada</span>*/}
+            <span className="brand-name">PAGADA</span>
           </div>
         </div>
 
@@ -62,10 +62,9 @@ const Navbar = ({ onContactClick }) => {
             </li>
             <li 
               className="nav-item"
-              onMouseEnter={() => handleMouseEnter('careers')}
               onClick={closeMobileMenu}
             >
-              <a href="#careers" className="nav-link">CAREERS</a>
+              {/* CAREERS removed */}
             </li>
             <li className="nav-item" onClick={closeMobileMenu}>
               <button 
@@ -93,7 +92,7 @@ const Navbar = ({ onContactClick }) => {
         {/* Right - Description and CTA */}
         <div className="navbar-right">
           <div className="navbar-description">
-            <p>We design digital solutions that make training,<br /> coaching, and league participation seamless</p>
+            <p>We empower athletes, coaches, and leagues with mentorship,<br />development and performance tools</p>
           </div>
           <button className="explore-btn">EXPLORE</button>
         </div>
@@ -113,14 +112,13 @@ const Navbar = ({ onContactClick }) => {
                 <div className="dropdown-nav">
                   <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#conversations">Pagada Conversations</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-featured">
                   <div className="featured-image company-bg"></div>
                   <div className="featured-content">
-                    <h3>RESHAPING THE HEALTHCARE LANDSCAPE</h3>
-                    <p>Technology must be co-developed with health systems. We believe in radical collaboration between technologists and healthcare leaders to deliver solutions that actually work.</p>
+                    <h3>RESHAPING SPORTS MENTORSHIP</h3>
+                    <p>We co-design programs with coaches and organizations to build mentorship systems that elevate athlete development and team performance.</p>
                   </div>
                 </div>
               </div>
@@ -134,21 +132,15 @@ const Navbar = ({ onContactClick }) => {
                 </div>
                 <div className="dropdown-nav">
                   <ul>
-                    <li><a href="#ambient-ai">Ambient AI</a></li>
-                    <li><a href="#agents">Agents</a></li>
-                    <li><a href="#rcm">RCM</a></li>
-                    <li><a href="#rpm">RPM</a></li>
-                    <li><a href="#engage">Engage</a></li>
-                    <li><a href="#patientkeeper">PatientKeeper</a></li>
-                    <li><a href="#strongline">Strongline</a></li>
-                    <li><a href="#colab">CoLab</a></li>
+                    <li><a href="#pagada-go">Pagada Go</a></li>
+                    <li><a href="#pagada-ment">Pagada Ment</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-featured">
                   <div className="featured-image product-bg"></div>
                   <div className="featured-content">
-                    <h3>THE ATOMIC UNITS OF HEALTHCARE INFRASTRUCTURE</h3>
-                    <p>On a mission to solve healthcare's biggest challenges with automated and AI-powered solutions to bring down the cost of care, reduce burnout and disparities, and improve community health.</p>
+                    <h3>THE ATOMIC UNITS OF SPORTS PERFORMANCE</h3>
+                    <p>On a mission to build modular products that help teams and athletes train smarter, reduce injuries, and accelerate development.</p>
                   </div>
                 </div>
               </div>
@@ -163,41 +155,14 @@ const Navbar = ({ onContactClick }) => {
                 <div className="dropdown-nav">
                   <ul>
                     <li><a href="#blogs">Blogs</a></li>
-                    <li><a href="#customer-stories">Customer Stories</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#media">Media</a></li>
-                    <li><a href="#webinars">Webinars</a></li>
                     <li><a href="#events">Events</a></li>
-                    <li><a href="#whitepapers">Whitepapers</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-featured">
                   <div className="featured-image resources-bg"></div>
                   <div className="featured-content">
                     <h3>REAL-WORLD IMPACT, INNOVATION, AND INSIGHT</h3>
-                    <p>Discover Pagada's latest news, customer stories, expert insights, webinars, and more. Learn about our customers and the transformative impact we're making alongside healthcare.</p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Careers Dropdown */}
-            {activeDropdown === 'careers' && (
-              <div className="dropdown-content">
-                <div className="dropdown-title">
-                  <h2>Careers</h2>
-                </div>
-                <div className="dropdown-nav">
-                  <ul>
-                    <li><a href="#job-openings">Job Openings</a></li>
-                    <li><a href="#life-at-pagada">Life at Pagada</a></li>
-                  </ul>
-                </div>
-                <div className="dropdown-featured">
-                  <div className="featured-image careers-bg"></div>
-                  <div className="featured-content">
-                    <h3>WE BUILD AI POWERED HEALTHCARE TECHNOLOGY.</h3>
-                    <p>We design digital solutions that make training, coaching, and league participation seamless</p>
+                    <p>Discover PAGADA's latest news, customer stories, expert insights, webinars, and more. Learn about our work and the impact we're having across sports and athlete development.</p>
                   </div>
                 </div>
               </div>
