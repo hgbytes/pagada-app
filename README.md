@@ -1,4 +1,4 @@
-# Arcadica Website
+# PAGADA Website
 
 A professional React website with a responsive navigation bar, built to match the provided design specifications.
 
