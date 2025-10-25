@@ -66,14 +66,14 @@ const ContactPopup = ({ isOpen, onClose }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="company">Company</label>
+            <label htmlFor="mobile">Mobile *</label>
             <input
               type="text"
-              id="company"
-              name="company"
-              value={formData.company}
+              id="mobile"
+              name="mobile"
+              value={formData.mobile}
               onChange={handleInputChange}
-              placeholder="Your company name"
+              placeholder="93567XXXXX"
             />
           </div>
 
