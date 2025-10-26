@@ -15,6 +15,12 @@
 
 html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -30,6 +36,14 @@ body {
   /* Sports mentorship dark theme background */
   background: #000;
   min-height: 100vh;
+  
+  /* Hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 code {
@@ -1272,11 +1286,13 @@ code {
 }
 
 .team-profiles {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .profile-card {
@@ -1853,5 +1869,168 @@ code {
     height: 400px;
     top: -30%;
     right: -30%;
+  }
+}
+
+/* ==========================================================================
+   11. FOOTER SECTION
+   ========================================================================== */
+
+.footer {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(15, 15, 15, 0.95) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem 0 2rem;
+  color: #ccc;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-brand {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #999;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #3cd400;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-link:hover {
+  color: #3cd400;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-heading {
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-size: 1.3rem;
+  }
+
+  .footer-heading {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-links a,
+  .social-link {
+    font-size: 0.9rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
   }
 }

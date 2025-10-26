@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import ContactPopup from './components/ContactPopup';
 import ComingSoon from './components/ComingSoon';
 import Blogs from './components/Blogs';
+import Footer from './components/Footer';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
       <div className="App">
         <Navbar onContactClick={openContact} />
         <Blogs />
+        <Footer onContactClick={openContact} />
         <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
       </div>
     );
@@ -41,6 +43,7 @@ function App() {
       <div className="App">
         <Navbar onContactClick={openContact} />
         <ComingSoon />
+        <Footer onContactClick={openContact} />
         <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
       </div>
     );
@@ -80,7 +83,7 @@ function App() {
             <div className="profile-card">
               <div className="profile-image placeholder-1"></div>
               <h3 className="profile-name">Dayakar</h3>
-              <p className="profile-title">Co</p>
+              <p className="profile-title">Co-Founder</p>
               <p className="profile-company">Athletic Capital</p>
             </div>
 
@@ -96,6 +99,9 @@ function App() {
 
       {/* Contact Popup */}
       <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
+
+      {/* Footer */}
+      <Footer onContactClick={openContact} />
     </div>
   );
 }
