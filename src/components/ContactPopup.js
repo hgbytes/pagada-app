@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { submitContactForm } from '../services/contactService';
 
 const ContactPopup = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
+    mobile: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -14,14 +18,43 @@ const ContactPopup = ({ isOpen, onClose }) => {
       ...prev,
       [name]: value
     }));
+    // Clear messages when user starts typing
+    setSubmitMessage('');
+    setSubmitError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add your form submission logic here
-    onClose();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    setSubmitError('');
+
+    try {
+      const result = await submitContactForm(formData);
+
+      if (result.success) {
+        setSubmitMessage(result.message);
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          mobile: '',
+          message: ''
+        });
+        // Close popup after 2 seconds
+        setTimeout(() => {
+          onClose();
+          setSubmitMessage('');
+        }, 2000);
+      } else {
+        setSubmitError(result.message);
+      }
+    } catch (error) {
+      setSubmitError('An unexpected error occurred. Please try again.');
+      console.error('Submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -39,6 +72,18 @@ const ContactPopup = ({ isOpen, onClose }) => {
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
+          {submitMessage && (
+            <div className="form-message success-message">
+              ✓ {submitMessage}
+            </div>
+          )}
+          
+          {submitError && (
+            <div className="form-message error-message">
+              ✕ {submitError}
+            </div>
+          )}
+
           <div className="form-group">
             <label htmlFor="name">Full Name *</label>
             <input
@@ -49,6 +94,7 @@ const ContactPopup = ({ isOpen, onClose }) => {
               onChange={handleInputChange}
               required
               placeholder="Your full name"
+              disabled={isSubmitting}
             />
           </div>
 
@@ -62,18 +108,20 @@ const ContactPopup = ({ isOpen, onClose }) => {
               onChange={handleInputChange}
               required
               placeholder="your.email@company.com"
+              disabled={isSubmitting}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="mobile">Mobile *</label>
+            <label htmlFor="mobile">Mobile</label>
             <input
-              type="text"
+              type="tel"
               id="mobile"
               name="mobile"
               value={formData.mobile}
               onChange={handleInputChange}
               placeholder="93567XXXXX"
+              disabled={isSubmitting}
             />
           </div>
 
@@ -87,15 +135,25 @@ const ContactPopup = ({ isOpen, onClose }) => {
               required
               rows="5"
               placeholder="Tell us about your project and how we can help..."
+              disabled={isSubmitting}
             />
           </div>
 
           <div className="form-actions">
-            <button type="button" className="btn-secondary" onClick={onClose}>
+            <button 
+              type="button" 
+              className="btn-secondary" 
+              onClick={onClose}
+              disabled={isSubmitting}
+            >
               Cancel
             </button>
-            <button type="submit" className="btn-primary">
-              Send Message
+            <button 
+              type="submit" 
+              className="btn-primary"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>
