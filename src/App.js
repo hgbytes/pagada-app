@@ -1,12 +1,38 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import ContactPopup from './components/ContactPopup';
+import ComingSoon from './components/ComingSoon';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState('home');
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
+
+  // Handle navigation based on hash
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1) || 'home';
+      setCurrentPage(hash);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange();
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Show Coming Soon page for specific routes
+  if (['pagada-go', 'pagada-ment', 'events', 'blogs'].includes(currentPage)) {
+    return (
+      <div className="App">
+        <Navbar onContactClick={openContact} />
+        <ComingSoon />
+        <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
+      </div>
+    );
+  }
 
   return (
     <div className="App">
