@@ -92,7 +92,7 @@ code {
   transform: translateY(-50%);
   width: 500px;
   height: 500px;
-  background-image: url('/assets/Artboard 4.svg');
+  background-image: url('./assets/Artboard 4.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1307,7 +1307,7 @@ code {
   background: #333;
   position: relative;
   overflow: hidden;
-  background-image: url('/assets/Artboard 4.svg');
+  background-image: url('./assets/Artboard 4.svg');
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1323,7 +1323,7 @@ code {
 .placeholder-4,
 .placeholder-5 {
   background: #333;
-  background-image: url('/assets/Artboard 4.svg');
+  background-image: url('./assets/Artboard 4.svg');
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;

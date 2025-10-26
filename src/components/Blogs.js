@@ -58,9 +58,9 @@ const Blogs = () => {
               const attributes = blog.attributes || blog;
               const slug = attributes.slug || blog.slug || blog.id;
               const imageUrl = attributes.media && attributes.media.length > 0
-                ? `${process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'}${attributes.media[0].url}`
+                ? `${process.env.REACT_APP_STRAPI_URL || 'https://pagada-strapi-0b20b797cd.strapiapp.com'}${attributes.media[0].url}`
                 : attributes.featuredImage?.data?.attributes?.url
-                  ? `${process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'}${attributes.featuredImage.data.attributes.url}`
+                  ? `${process.env.REACT_APP_STRAPI_URL || 'https://pagada-strapi-0b20b797cd.strapiapp.com'}${attributes.featuredImage.data.attributes.url}`
                   : '/placeholder-image.png';
 
               return (
