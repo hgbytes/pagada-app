@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import ContactPopup from './components/ContactPopup';
 import ComingSoon from './components/ComingSoon';
+import Blogs from './components/Blogs';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -23,8 +24,19 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Show Coming Soon page for specific routes
-  if (['pagada-go', 'pagada-ment', 'events', 'blogs'].includes(currentPage)) {
+  // Show Blogs page for blogs route
+  if (currentPage === 'blogs') {
+    return (
+      <div className="App">
+        <Navbar onContactClick={openContact} />
+        <Blogs />
+        <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
+      </div>
+    );
+  }
+
+  // Show Coming Soon page for other specific routes
+  if (['pagada-go', 'pagada-ment', 'events'].includes(currentPage)) {
     return (
       <div className="App">
         <Navbar onContactClick={openContact} />
