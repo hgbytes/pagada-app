@@ -42,6 +42,25 @@ export const fetchBlogById = async (id) => {
 };
 
 /**
+ * Fetch a single blog post by slug
+ * @param {string} slug - Blog post slug
+ * @returns {Promise<Object>} Single blog post
+ */
+export const fetchBlogBySlug = async (slug) => {
+  try {
+    const response = await fetch(`${STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blog: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data.data || [];
+  } catch (error) {
+    console.error(`Error fetching blog with slug ${slug} from Strapi:`, error);
+    return [];
+  }
+};
+
+/**
  * Fetch blogs with pagination and filtering
  * @param {number} page - Page number (default 1)
  * @param {number} pageSize - Items per page (default 10)
@@ -71,6 +90,7 @@ export const fetchBlogsWithPagination = async (page = 1, pageSize = 10, sort = '
 const strapiService = {
   fetchBlogs,
   fetchBlogById,
+  fetchBlogBySlug,
   fetchBlogsWithPagination,
 };
 

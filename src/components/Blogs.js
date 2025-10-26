@@ -56,31 +56,34 @@ const Blogs = () => {
           <div className="blogs-grid">
             {blogs.map((blog) => {
               const attributes = blog.attributes || blog;
-              const imageUrl = attributes.featuredImage?.data?.attributes?.url
-                ? `${process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'}${attributes.featuredImage.data.attributes.url}`
-                : '/placeholder-image.png';
+              const slug = attributes.slug || blog.slug || blog.id;
+              const imageUrl = attributes.media && attributes.media.length > 0
+                ? `${process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'}${attributes.media[0].url}`
+                : attributes.featuredImage?.data?.attributes?.url
+                  ? `${process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'}${attributes.featuredImage.data.attributes.url}`
+                  : '/placeholder-image.png';
 
               return (
                 <article key={blog.id} className="blog-card">
                   <div className="blog-image">
-                    <img src={imageUrl} alt={attributes.title || 'Blog'} />
+                    <img src={imageUrl} alt={attributes.Title || attributes.title || 'Blog'} />
                   </div>
                   <div className="blog-content">
-                    <h2 className="blog-title">{attributes.title || 'Untitled'}</h2>
+                    <h2 className="blog-title">{attributes.Title || attributes.title || 'Untitled'}</h2>
                     <p className="blog-excerpt">
-                      {attributes.excerpt || attributes.content?.substring(0, 150) || 'No description available'}
+                      {attributes.excerpt || (attributes.content && typeof attributes.content === 'string' ? attributes.content.substring(0, 150) : 'No description available')}
                     </p>
                     <div className="blog-meta">
                       {attributes.author && (
                         <span className="blog-author">By {attributes.author}</span>
                       )}
-                      {attributes.publishedAt && (
+                      {(attributes.published || attributes.publishedAt) && (
                         <span className="blog-date">
-                          {new Date(attributes.publishedAt).toLocaleDateString()}
+                          {new Date(attributes.published || attributes.publishedAt).toLocaleDateString()}
                         </span>
                       )}
                     </div>
-                    <a href={`#blog/${blog.id}`} className="blog-link">
+                    <a href={`#blog/${slug}`} className="blog-link">
                       Read More →
                     </a>
                   </div>

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import ContactPopup from './components/ContactPopup';
 import ComingSoon from './components/ComingSoon';
 import Blogs from './components/Blogs';
+import BlogDetail from './components/BlogDetail';
 import Footer from './components/Footer';
 
 function App() {
@@ -24,6 +25,18 @@ function App() {
 
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  // Show Blog Detail page for individual blog posts
+  if (currentPage.startsWith('blog/')) {
+    return (
+      <div className="App">
+        <Navbar onContactClick={openContact} />
+        <BlogDetail />
+        <Footer onContactClick={openContact} />
+        <ContactPopup isOpen={isContactOpen} onClose={closeContact} />
+      </div>
+    );
+  }
 
   // Show Blogs page for blogs route
   if (currentPage === 'blogs') {
