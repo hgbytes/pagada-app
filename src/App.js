@@ -67,37 +67,16 @@ function App() {
           <div className="team-profiles">
             <div className="profile-card">
               <div className="profile-image placeholder-1"></div>
-              <h3 className="profile-name">Sarah Chen</h3>
-              <p className="profile-title">Partner</p>
+              <h3 className="profile-name">Dayakar</h3>
+              <p className="profile-title">Co</p>
               <p className="profile-company">Athletic Capital</p>
             </div>
 
             <div className="profile-card">
               <div className="profile-image placeholder-2"></div>
-              <h3 className="profile-name">Marcus Rivera</h3>
-              <p className="profile-title">Managing Director</p>
-              <p className="profile-company">Sports Catalyst</p>
-            </div>
-
-            <div className="profile-card">
-              <div className="profile-image placeholder-3"></div>
-              <h3 className="profile-name">Dayakar</h3>
+              <h3 className="profile-name">Saranya Dayakar</h3>
               <p className="profile-title">Co-Founder</p>
               <p className="profile-company">Pagada</p>
-            </div>
-
-            <div className="profile-card">
-              <div className="profile-image placeholder-4"></div>
-              <h3 className="profile-name">David Park</h3>
-              <p className="profile-title">EVP & GM</p>
-              <p className="profile-company">Elite Performance Sciences</p>
-            </div>
-
-            <div className="profile-card">
-              <div className="profile-image placeholder-5"></div>
-              <h3 className="profile-name">Jennifer Walsh</h3>
-              <p className="profile-title">Co-Founder & CEO</p>
-              <p className="profile-company">SportSync</p>
             </div>
           </div>
         </div>
