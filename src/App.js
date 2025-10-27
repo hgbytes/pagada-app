@@ -120,7 +120,7 @@ function App() {
               <div className="profile-image placeholder-1"></div>
               <h3 className="profile-name">Dayakar</h3>
               <p className="profile-title">Co-Founder</p>
-              <p className="profile-company">Athletic Capital</p>
+              <p className="profile-company">Pagada</p>
             </div>
 
             <div className="profile-card">
