@@ -2,7 +2,7 @@
 
 A professional React application connecting athletes with mentors, featuring responsive design, blog system, and real-time notifications.
 
-## 🎯 Features
+##  Features
 
 - **Responsive Web Design** - Mobile-first approach optimized for all devices
 - **Blog System** - Strapi CMS integration for content management
@@ -10,7 +10,7 @@ A professional React application connecting athletes with mentors, featuring res
 - **Modern UI** - Clean, dark theme with professional design
 - **Hash-based Routing** - SPA navigation for blogs and pages
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js v14+ and npm
@@ -39,7 +39,7 @@ A professional React application connecting athletes with mentors, featuring res
    npm start
    ```
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: React 18.2.0
 - **Backend**: Supabase (PostgreSQL)
@@ -47,7 +47,7 @@ A professional React application connecting athletes with mentors, featuring res
 - **Styling**: CSS3 with Grid/Flexbox
 - **Deployment**: Strapi Cloud
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -86,13 +86,13 @@ CREATE POLICY "Allow inserts" ON contacts FOR INSERT WITH CHECK (true);
 2. Create Blog content type with fields: Title, slug, author, content, excerpt
 3. Set public permissions for Blog content type
 
-## � Responsive Breakpoints
+##  Responsive Breakpoints
 
 - Desktop: 1200px+
 - Tablet: 768px - 1199px
 - Mobile: ≤767px
 
-## � Deployment
+## Deployment
 
 ### Frontend
 ```bash
@@ -104,7 +104,7 @@ npm run build
 - Supabase: Already hosted
 - Strapi: Deploy to Strapi Cloud
 
-## � License
+## License
 
 MIT License - Created by PAGADA Team
 
