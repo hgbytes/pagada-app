@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { fetchBlogs } from '../services/strapiService';
+import { useLoading } from '../context/LoadingContext';
 import '../styles/Blogs.css';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { startLoading, stopLoading } = useLoading();
 
   useEffect(() => {
     const loadBlogs = async () => {
+      startLoading();
       try {
-        setLoading(true);
         const blogsData = await fetchBlogs();
         setBlogs(blogsData);
         if (blogsData.length === 0) {
@@ -20,22 +21,12 @@ const Blogs = () => {
         setError('Failed to load blogs. Please check your Strapi connection.');
         console.error(err);
       } finally {
-        setLoading(false);
+        stopLoading();
       }
     };
 
     loadBlogs();
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="blogs-section">
-        <div className="blogs-container">
-          <p className="loading">Loading blogs...</p>
-        </div>
-      </section>
-    );
-  }
+  }, [startLoading, stopLoading]);
 
   return (
     <section className="blogs-section" id="blogs">

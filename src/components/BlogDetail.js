@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { fetchBlogBySlug } from '../services/strapiService';
+import { useLoading } from '../context/LoadingContext';
 
 function BlogDetail() {
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { startLoading, stopLoading } = useLoading();
   const slug = window.location.hash.split('/')[1];
 
   useEffect(() => {
     const getBlog = async () => {
+      startLoading();
       try {
-        setLoading(true);
         const data = await fetchBlogBySlug(slug);
         if (data && data.length > 0) {
           setBlog(data[0]);
@@ -21,18 +22,14 @@ function BlogDetail() {
         setError('Failed to load blog');
         console.error(err);
       } finally {
-        setLoading(false);
+        stopLoading();
       }
     };
 
     if (slug) {
       getBlog();
     }
-  }, [slug]);
-
-  if (loading) {
-    return <div className="blog-detail-container"><div className="loading">Loading blog...</div></div>;
-  }
+  }, [slug, startLoading, stopLoading]);
 
   if (error || !blog) {
     return (

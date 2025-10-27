@@ -5,10 +5,13 @@ import ComingSoon from './components/ComingSoon';
 import Blogs from './components/Blogs';
 import BlogDetail from './components/BlogDetail';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
+import { LoadingProvider, useLoading } from './context/LoadingContext';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+  const { isLoading } = useLoading();
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
@@ -30,6 +33,11 @@ function App() {
   if (currentPage.startsWith('blog/')) {
     return (
       <div className="App">
+        {isLoading && (
+          <div className="loader-overlay">
+            <Loader />
+          </div>
+        )}
         <Navbar onContactClick={openContact} />
         <BlogDetail />
         <Footer onContactClick={openContact} />
@@ -42,6 +50,11 @@ function App() {
   if (currentPage === 'blogs') {
     return (
       <div className="App">
+        {isLoading && (
+          <div className="loader-overlay">
+            <Loader />
+          </div>
+        )}
         <Navbar onContactClick={openContact} />
         <Blogs />
         <Footer onContactClick={openContact} />
@@ -54,6 +67,11 @@ function App() {
   if (['pagada-go', 'pagada-ment', 'events'].includes(currentPage)) {
     return (
       <div className="App">
+        {isLoading && (
+          <div className="loader-overlay">
+            <Loader />
+          </div>
+        )}
         <Navbar onContactClick={openContact} />
         <ComingSoon />
         <Footer onContactClick={openContact} />
@@ -64,6 +82,11 @@ function App() {
 
   return (
     <div className="App">
+      {isLoading && (
+        <div className="loader-overlay">
+          <Loader />
+        </div>
+      )}
       <Navbar onContactClick={openContact} />
       
       <main className="main-content">
