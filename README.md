@@ -1,14 +1,17 @@
+````markdown
 # PAGADA - Sports Mentorship Platform
 
-A professional React application connecting athletes with mentors, featuring responsive design, blog system, and real-time notifications.
+A professional React application connecting athletes with mentors, featuring responsive design, blog system, glass morphism card components, and real-time notifications.
 
 ##  Features
 
 - **Responsive Web Design** - Mobile-first approach optimized for all devices
+- **Glass Morphism Cards** - Modern UI with animated card components
 - **Blog System** - Strapi CMS integration for content management
 - **Contact Forms** - Supabase backend with Telegram notifications
 - **Modern UI** - Clean, dark theme with professional design
 - **Hash-based Routing** - SPA navigation for blogs and pages
+- **Styled Components** - Scoped styling with dynamic themes
 
 ## Quick Start
 
@@ -42,9 +45,10 @@ A professional React application connecting athletes with mentors, featuring res
 ##  Tech Stack
 
 - **Frontend**: React 18.2.0
+- **Styling**: Styled Components 6.1.19
 - **Backend**: Supabase (PostgreSQL)
 - **CMS**: Strapi 5.29.0
-- **Styling**: CSS3 with Grid/Flexbox
+- **UI Components**: Glass Morphism Cards
 - **Deployment**: Strapi Cloud
 
 ##  Project Structure
@@ -53,6 +57,7 @@ A professional React application connecting athletes with mentors, featuring res
 src/
 ├── components/
 │   ├── Navbar.js
+│   ├── Card.js (Glass morphism cards)
 │   ├── Blogs.js
 │   ├── BlogDetail.js
 │   ├── Footer.js
@@ -60,6 +65,8 @@ src/
 ├── services/
 │   ├── strapiService.js
 │   └── contactService.js
+├── assets/
+│   └── Artboard 4.svg (Card images)
 ├── App.js
 └── styles.css
 ```
@@ -92,6 +99,30 @@ CREATE POLICY "Allow inserts" ON contacts FOR INSERT WITH CHECK (true);
 - Tablet: 768px - 1199px
 - Mobile: ≤767px
 
+## Components
+
+### Card Component
+Modern glass morphism card component with:
+- Animated hover effects
+- Collective hover behavior for card groups
+- Image support
+- Responsive sizing
+- Smooth transitions
+
+### Navbar
+Professional navigation with:
+- Dark theme styling
+- Dropdown menus
+- Mobile-responsive hamburger menu
+- Contact button integration
+
+### Contact Popup
+Modal form with:
+- Form validation
+- Supabase integration
+- Telegram notifications
+- Success/Error messaging
+
 ## Deployment
 
 ### Frontend
@@ -107,4 +138,7 @@ npm run build
 ## License
 
 MIT License - Created by PAGADA Team
+
+
+````
 

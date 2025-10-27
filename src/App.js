@@ -6,7 +6,9 @@ import Blogs from './components/Blogs';
 import BlogDetail from './components/BlogDetail';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import Card from './components/Card';
 import { LoadingProvider, useLoading } from './context/LoadingContext';
+import artboardImage from './assets/Artboard 4.svg';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -89,18 +91,47 @@ function App() {
       )}
       <Navbar onContactClick={openContact} />
       
+      {/* Marquee Section */}
+      <div className="content">
+        <div className="marquee">
+          <div className="marquee_blur" aria-hidden="true">
+            <p className="marquee_text">PAGADA</p>
+          </div>
+          <div className="marquee_clear">
+            <p className="marquee_text">PAGADA</p>
+          </div>
+        </div>
+      </div>
+
       <main className="main-content">
         {/* Hero Content */}
         <div className="hero-container">
           <h1 className="hero-title">
-            The innovation driving <br />
-            next-generation sports systems.
+            The innovation driving next-generation sports systems.
           </h1>
         </div>
         
-        {/* Right side decoration */}
-        <div className="hero-decoration"></div>
+        
+        
       </main>
+
+      {/* Cards Section with Images */}
+      <div className="cards-wrapper">
+        <div className="cards-section" style={{ marginTop: '60px', display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
+          <Card 
+            image={artboardImage} 
+            title="Inspire" 
+          />
+          <Card 
+            image={artboardImage} 
+            title="Perform" 
+          />
+          <Card 
+            image={artboardImage} 
+            title="Evolve" 
+          />
+        </div>
+      </div>
 
       {/* Pagada Conversations Section */}
       <section className="conversations-section">

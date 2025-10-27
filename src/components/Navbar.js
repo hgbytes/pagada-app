@@ -39,13 +39,14 @@ const Navbar = ({ onContactClick }) => {
         {/* Center - Navigation Menu */}
         <div className={`navbar-center ${isMobileMenuOpen ? 'navbar-center-open' : ''}`}>
           <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
-            <li 
+           <li 
               className="nav-item"
               onMouseEnter={() => handleMouseEnter('company')}
               onClick={closeMobileMenu}
             >
-              <a href="#company" className="nav-link">COMPANY</a>
+              <a href="#home" className="nav-link">Home</a>
             </li>
+
             <li 
               className="nav-item"
               onMouseEnter={() => handleMouseEnter('product')}
@@ -103,27 +104,6 @@ const Navbar = ({ onContactClick }) => {
         <div className="dropdown-overlay">
           <div className="dropdown-container">
             
-            {/* Company Dropdown */}
-            {activeDropdown === 'company' && (
-              <div className="dropdown-content">
-                <div className="dropdown-title">
-                  <h2>Company</h2>
-                </div>
-                <div className="dropdown-nav">
-                  <ul>
-                    <li><a href="#about">About</a></li>
-                  </ul>
-                </div>
-                <div className="dropdown-featured">
-                  <div className="featured-image company-bg"></div>
-                  <div className="featured-content">
-                    <h3>RESHAPING SPORTS MENTORSHIP</h3>
-                    <p>We co-design programs with coaches and organizations to build mentorship systems that elevate athlete development and team performance.</p>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {/* Product Suite Dropdown */}
             {activeDropdown === 'product' && (
               <div className="dropdown-content">

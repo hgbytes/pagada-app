@@ -51,6 +51,113 @@ code {
 }
 
 /* ==========================================================================
+   1.5 MARQUEE SECTION - ANIMATED TEXT
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+.content {
+  width: 100%;
+  padding: 5rem 1rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+  height: 2em;
+  font-size: clamp(5rem, 14vw, 10rem);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.marquee_text {
+  position: absolute;
+  min-width: 100%;
+  white-space: nowrap;
+  animation: marquee 30s infinite linear;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+@keyframes marquee {
+  from { 
+    transform: translateX(100%);
+  }
+  to { 
+    transform: translateX(-100%);
+  }
+}
+
+.marquee_blur {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-color: black;
+  background-image:
+    linear-gradient(to right, white, 1rem, transparent 50%),
+    linear-gradient(to left, white, 1rem, transparent 50%);
+  filter: contrast(15);
+}
+
+.marquee_blur p {
+  filter: blur(0.07em);
+}
+
+.marquee_clear {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* Marquee Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .marquee {
+    height: 2em;
+    font-size: clamp(2rem, 10vw, 5rem);
+  }
+
+  .marquee_blur {
+    background-image:
+      linear-gradient(to right, white, 0.5rem, transparent 50%),
+      linear-gradient(to left, white, 0.5rem, transparent 50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 5rem 0.5rem;
+  }
+
+  .marquee {
+    height: 2em;
+    font-size: clamp(1.5rem, 8vw, 3rem);
+  }
+
+  .marquee_blur {
+    background-image:
+      linear-gradient(to right, white, 0.25rem, transparent 50%),
+      linear-gradient(to left, white, 0.25rem, transparent 50%);
+    filter: contrast(10);
+  }
+
+  .marquee_blur p {
+    filter: blur(0.05em);
+  }
+}
+
+/* ==========================================================================
    2. LAYOUT COMPONENTS -  TECH DARK THEME
    ========================================================================== */
 
@@ -61,8 +168,8 @@ code {
 }
 
 .main-content {
-  padding-top: 120px;
-  min-height: 100vh;
+  padding-top: 40px;
+  min-height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,22 +190,6 @@ code {
   flex: 1;
 }
 
-
-/* Right side decoration */
-.hero-decoration {
-  position: absolute;
-  right: 5rem;
-  top: 55%;
-  transform: translateY(-50%);
-  width: 500px;
-  height: 500px;
-  background-image: url('./assets/Artboard 4.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 1;
-  z-index: 5;
-}
 
 .hero-title {
   font-size: 4.5rem;
@@ -1727,7 +1818,78 @@ code {
 }
 
 /* ==========================================================================
-   11. COMING SOON PAGE
+   11. CARD COMPONENT STYLES - GLASS MORPHISM
+   ========================================================================== */
+
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .glass {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 30px;
+  margin: 0 -65px; /* increased overlap offset to allow larger separation on hover */
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.container:hover .glass {
+  transform: rotate(0deg);
+  margin: 0 1000px; /* increased separation when hovered */
+}
+
+.container .glass::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.container .glass svg {
+  font-size: 2.5em;
+  fill: #fff;
+}
+
+.cards-section {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 80px; /* increased gap between cards */
+  flex-wrap: wrap;
+}
+
+/* Collective hover behavior for all cards */
+.cards-wrapper:hover .card-container .glass {
+  opacity: 0.6;
+  filter: brightness(0.7);
+}
+
+.cards-wrapper .card-container:hover .glass {
+  opacity: 1;
+  filter: brightness(1);
+}
+
+/* ==========================================================================
+   12. COMING SOON PAGE
    ========================================================================== */
 
 .coming-soon-container {
@@ -1736,7 +1898,7 @@ code {
   align-items: center;
   justify-content: center;
   background: #000; /* removed gradient */
-  padding: 2rem;
+  padding: 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -1904,6 +2066,84 @@ code {
   grid-column: 1;
 }
 
+.footer-brand {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0.5rem 0 1.5rem 0;
+  letter-spacing: 1.5px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-button {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s;
+  text-decoration: none;
+}
+
+.social-button svg {
+  color: white;
+  width: 30px;
+  height: 30px;
+  z-index: 9;
+}
+
+.social-button.instagram {
+  background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+.social-button.whatsapp {
+  background: linear-gradient(120deg, #02ff2c, #008a12);
+}
+
+.social-button.twitter {
+  background: rgb(69, 187, 255);
+}
+
+.social-button.youtube {
+  background: rgb(255, 33, 33);
+}
+
+.social-button.discord {
+  background: black;
+}
+
+.social-button:active {
+  transform: scale(0.85);
+}
+
+.social-button::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background-color: #212121;
+  border-radius: 50px;
+  z-index: -1;
+  border: 0px solid rgba(255, 255, 255, 0.411);
+  transition: 0.4s;
+}
+
+.social-button:hover::before {
+  width: 0px;
+  height: 0px;
+}
+
 .footer-logo {
   width: 60px;
   height: 60px;
@@ -1914,6 +2154,7 @@ code {
   justify-content: center;
   margin-bottom: 1rem;
   overflow: hidden;
+  display: none;
 }
 
 .footer-logo-img {
@@ -1921,14 +2162,6 @@ code {
   height: 100%;
   object-fit: contain;
   padding: 8px;
-}
-
-.footer-brand {
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: #ffffff;
-  margin: 0.5rem 0;
-  letter-spacing: 1.5px;
 }
 
 .footer-tagline {
@@ -2000,24 +2233,6 @@ code {
 }
 
 .footer-links a:hover {
-  color: #fff;
-}
-
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.social-link {
-  color: #999;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-  display: inline-block;
-}
-
-.social-link:hover {
   color: #fff;
 }
 
