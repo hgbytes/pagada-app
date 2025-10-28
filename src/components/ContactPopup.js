@@ -6,17 +6,18 @@ const ContactPopup = ({ isOpen, onClose }) => {
     name: '',
     email: '',
     mobile: '',
-    message: ''
+    message: '',
+    subscribeNewsletter: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
     // Clear messages when user starts typing
     setSubmitMessage('');
@@ -39,7 +40,8 @@ const ContactPopup = ({ isOpen, onClose }) => {
           name: '',
           email: '',
           mobile: '',
-          message: ''
+          message: '',
+          subscribeNewsletter: false
         });
         // Close popup after 2 seconds
         setTimeout(() => {
@@ -137,6 +139,22 @@ const ContactPopup = ({ isOpen, onClose }) => {
               placeholder="Tell us about your project and how we can help..."
               disabled={isSubmitting}
             />
+          </div>
+
+          <div className="form-group checkbox-group">
+            <div className="checkbox-wrapper">
+              <input
+                type="checkbox"
+                id="subscribeNewsletter"
+                name="subscribeNewsletter"
+                checked={formData.subscribeNewsletter}
+                onChange={handleInputChange}
+                disabled={isSubmitting}
+              />
+              <label htmlFor="subscribeNewsletter" className="checkbox-label">
+                Subscribe to our newsletter for updates, insights, and exclusive content
+              </label>
+            </div>
           </div>
 
           <div className="form-actions">

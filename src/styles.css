@@ -1613,6 +1613,40 @@ code {
   min-height: 120px;
 }
 
+.checkbox-group {
+  margin: 1rem 0;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #00bfff;
+  flex-shrink: 0;
+}
+
+.checkbox-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  margin: 0 !important;
+}
+
+.checkbox-wrapper input[type="checkbox"]:disabled + .checkbox-label {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .form-message {
   padding: 1rem;
   border-radius: 8px;
