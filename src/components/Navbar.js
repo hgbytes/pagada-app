@@ -21,6 +21,11 @@ const Navbar = ({ onContactClick }) => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleExploreClick = () => {
+    window.open('/cloud/index.html', '_blank', 'noopener,noreferrer');
+    closeMobileMenu();
+  };
+
   return (
     <nav className="navbar" onMouseLeave={handleMouseLeave}>
       <div className="navbar-container">
@@ -95,7 +100,13 @@ const Navbar = ({ onContactClick }) => {
           <div className="navbar-description">
             <p>We empower athletes, coaches, and leagues with mentorship,<br />development and performance tools</p>
           </div>
-          <button className="explore-btn">EXPLORE</button>
+          <button
+            type="button"
+            className="explore-btn"
+            onClick={handleExploreClick}
+          >
+            PAGADA
+          </button>
         </div>
       </div>
 

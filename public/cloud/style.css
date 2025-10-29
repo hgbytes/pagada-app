@@ -1,0 +1,58 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@901&display=swap');
+
+html, body { 
+  width: 100vw;
+  height: 200vh;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  font-family: Monospace;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  z-index: 3;
+}
+
+/* Centered SVG background wrapper. It sits behind the Three.js canvas. */
+.bg-svg-wrapper{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* allow mouse events to pass through to the canvas */
+  z-index: 1;
+  /* nudge the SVG slightly upward */
+  transform: translateY(-90px);
+}
+
+.bg-svg{
+  width: 100%;
+  max-width: 1200px;
+  height: 200px;
+}
+
+/* SVG text font */
+.bg-svg text{
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 900;
+}
+
+body {
+  background-color: black;
+  margin: 0px;
+  overflow-x: hidden;
+  font-family: Monospace;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+}
+
+a { color: #2a2a2b; }

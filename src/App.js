@@ -91,18 +91,6 @@ function App() {
       )}
       <Navbar onContactClick={openContact} />
       
-      {/* Marquee Section */}
-      <div className="content">
-        <div className="marquee">
-          <div className="marquee_blur" aria-hidden="true">
-            <p className="marquee_text">PAGADA</p>
-          </div>
-          <div className="marquee_clear">
-            <p className="marquee_text">PAGADA</p>
-          </div>
-        </div>
-      </div>
-
       <main className="main-content">
         {/* Hero Content */}
         <div className="hero-container">
@@ -111,8 +99,17 @@ function App() {
           </h1>
         </div>
         
-        
-        
+        {/* Marquee Section */}
+        <div className="content">
+          <div className="marquee">
+            <div className="marquee_blur" aria-hidden="true">
+              <p className="marquee_text">PAGADA</p>
+            </div>
+            <div className="marquee_clear">
+              <p className="marquee_text">PAGADA</p>
+            </div>
+          </div>
+        </div>
       </main>
 
       {/* Cards Section with Images */}
