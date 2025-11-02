@@ -147,6 +147,7 @@ const Navbar = ({ onContactClick }) => {
                   <ul>
                     <li><a href="#blogs">Blogs</a></li>
                     <li><a href="#events">Events</a></li>
+                    <li><a href="https://cricheroes.com/cricket-ground-detail/215531/kovilpatti/pagada-sports" target="_blank" rel="noopener noreferrer">Cricheros</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-featured">
