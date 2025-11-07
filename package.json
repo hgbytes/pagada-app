@@ -2,7 +2,7 @@
   "name": "pagada-website",
   "version": "0.1.0",
   "private": true,
-  "license": "MIT",
+  "license": "UNLICENSED",
   "dependencies": {
     "@supabase/supabase-js": "^2.76.1",
     "@testing-library/jest-dom": "^5.16.4",
