@@ -1,0 +1,44 @@
+AUTHORSHIP DECLARATION
+
+Project: PAGADA - Sports Mentorship Platform
+Repository: pagada-app
+Date: 7 November 2025
+
+I, Hariganesh R, hereby declare that I am the original author and creator of this 
+software project known as "PAGADA" (Sports Mentorship & Athlete Development Platform).
+
+This declaration confirms that:
+
+1. I am the sole author and owner of the original code, design, and intellectual 
+   property contained within this repository.
+
+2. All code, documentation, and associated materials in this repository were 
+   created by me or under my direction and supervision.
+
+3. This project is released under the MIT License as specified in the LICENSE 
+   file included in this repository.
+
+4. I grant permission for use, modification, and distribution of this software 
+   in accordance with the terms of the MIT License.
+
+5. I acknowledge that contributors to this project retain copyright to their 
+   respective contributions, which are also governed by the MIT License.
+
+
+Project Details:
+- Project Name: PAGADA
+- Repository URL: https://github.com/hgbytes/pagada-app
+- Technology Stack: React, Supabase, Strapi CMS
+- Domain: pagadasports.in
+- License: MIT License
+
+
+Signed,
+
+Hariganesh R
+Date: 7 November 2025
+
+
+---
+This declaration is part of the official project documentation and establishes 
+authorship and ownership rights for the PAGADA platform.
