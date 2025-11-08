@@ -4,6 +4,12 @@
    ========================================================================== */
 
 /* ==========================================================================
+   FONT IMPORTS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Garnier:wght@400;700&display=swap');
+
+/* ==========================================================================
    1. RESET & BASE STYLES
    ========================================================================== */
 
@@ -298,10 +304,11 @@ code {
 
 .brand-name {
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 700;
   color: white;
   text-decoration: none;
   letter-spacing: 0.5px;
+  font-family: 'Garnier', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Navbar SVG Logo Styling */
@@ -1927,7 +1934,7 @@ code {
    ========================================================================== */
 
 .coming-soon-container {
-  min-height: 100vh;
+  min-height: 115vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2004,6 +2011,163 @@ code {
   transform: translateY(-1px);
 }
 
+/* Countdown Timer Styles */
+.countdown-container {
+  margin: 3rem 0;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid #3cd400;
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  min-width: 90px;
+  backdrop-filter: blur(10px);
+}
+
+.countdown-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.75rem;
+  letter-spacing: -1px;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.countdown-separator {
+  font-size: 1.5rem;
+  color: #3cd400;
+  font-weight: 700;
+  margin: 0 0.25rem;
+  opacity: 0.7;
+}
+
+/* Newsletter Section Styles */
+.newsletter-section {
+  margin: 3rem 0 2rem 0;
+  width: 100%;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  max-width: 500px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+  outline: none;
+}
+
+.newsletter-input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-btn {
+  background: #3cd400;
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.newsletter-btn:hover:not(:disabled) {
+  background: #2aaa00;
+  transform: translateX(2px);
+}
+
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-hint {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  margin: 1rem 0 0 0;
+}
+
+.newsletter-message {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+.newsletter-message.success {
+  background: rgba(60, 212, 0, 0.1);
+  border: 1px solid rgba(60, 212, 0, 0.3);
+  color: #3cd400;
+}
+
+.newsletter-message.error {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -2025,8 +2189,31 @@ code {
     font-size: 1.2rem;
   }
 
-  .coming-soon-description {
-    font-size: 1rem;
+  .countdown-item {
+    min-width: 70px;
+    padding: 1rem 0.875rem;
+  }
+
+  .countdown-value {
+    font-size: 1.75rem;
+  }
+
+  .countdown-separator {
+    font-size: 1.75rem;
+  }
+
+  .newsletter-form {
+    max-width: 100%;
+  }
+
+  .newsletter-input {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .newsletter-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 
   .coming-soon-btn {
@@ -2050,9 +2237,50 @@ code {
     margin-bottom: 0.75rem;
   }
 
-  .coming-soon-description {
+  .countdown-timer {
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .countdown-item {
+    min-width: 65px;
+    padding: 1.25rem 0.875rem;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.8px;
+  }
+
+  .countdown-separator {
+    font-size: 1.5rem;
+    margin: 0 0.15rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .newsletter-input {
+    padding: 0.75rem 1rem;
     font-size: 0.95rem;
-    margin-bottom: 2rem;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .newsletter-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .newsletter-hint {
+    font-size: 0.85rem;
   }
 
   .coming-soon-btn {
